@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'mysite:home' %}">Django CRM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="{% url 'mysite:logout' %}" class="nav-link">Log out</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'mysite:change_password' %}" class="nav-link">Change your password</a>
+              </li>
+                <li class="nav-item">
+                  <a href="{% url 'mysite:add_record' %}" class="nav-link">Add customer record</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a href="{% url 'mysite:home' %}" class="nav-link">Log in</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'mysite:register' %}" class="nav-link">Register</a>
+                </li>
+            {% endif %}
+          {% comment %} <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li> {% endcomment %}
+          
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
